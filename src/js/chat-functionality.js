@@ -51,6 +51,7 @@ function initializeChat() {
 
 async function addMessage(inputElement, messageArea, message = null) {
   const messageText = message ?? inputElement.value.trim();
+  inputElement.value = '';
   if (messageText) {
     try {
       const newMessage = document.createElement('div');
@@ -63,7 +64,7 @@ async function addMessage(inputElement, messageArea, message = null) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: messageText }),
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -79,7 +80,6 @@ async function addMessage(inputElement, messageArea, message = null) {
     } catch (error) {
       console.error('Error getting response from the backend:', error);
     }
-    inputElement.value = '';
     messageArea.scrollTop = messageArea.scrollHeight;
   }
 }
@@ -129,44 +129,44 @@ async function processException(inputString) {
   //   });
 
   fetch('static/templates/exception.html')
-  .then(response => {
+    .then(response => {
       if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       return response.text();
-  })
-  .then(html => {
+    })
+    .then(html => {
       // const name = 'Juan Pérez'; // Replace with your dynamic value
       const updatedHTML = html.replace('{{name}}', name);
 
       // Open the updated HTML in a new window
       const newWindow = window.open('', '_blank');
       if (newWindow) {
-          newWindow.document.open();
-          newWindow.document.write(updatedHTML);
-          newWindow.document.close();
+        newWindow.document.open();
+        newWindow.document.write(updatedHTML);
+        newWindow.document.close();
       } else {
-          console.error('Failed to open a new window');
+        console.error('Failed to open a new window');
       }
-  })
-  .catch(error => {
+    })
+    .catch(error => {
       console.error('Error loading HTML template:', error);
-  });
+    });
 }
 
 function downloadPDF(htmlContent, fileName) {
   // const doc = new jsPDF();
   const doc = new window.jspdf.jsPDF();
-  
+
   // Generate PDF from provided HTML content
   doc.html(htmlContent, {
-      callback: function (doc) {
-          doc.save(`${fileName}.pdf`);
-      },
-      x: 10,
-      y: 10,
-      width: 180,  // Adjust the width to fit content
-      windowWidth: 800  // The width of the page in the browser
+    callback: function (doc) {
+      doc.save(`${fileName}.pdf`);
+    },
+    x: 10,
+    y: 10,
+    width: 180,  // Adjust the width to fit content
+    windowWidth: 800  // The width of the page in the browser
   });
 }
 
