@@ -42,7 +42,7 @@ Puedes consultar más infomación de SCIO en https://docs.google.com/document/d/
 
 Si, luego del primer año de antigüedad puedes adelantar días de vacaciones, siempre y cuando el número de días solicitados no supere los acumulados para el siguiente periodo.  
 
-¿Puedo usar horas de tiempo personal y combinarla con otros permisos como vacaciones, permiso especial, día feriado?  
+¿Puedo usar horas de tiempo personal y combinarla con otros permisos como vacaciones, permiso especial, día feriado?
 
 Esta prestación adicional en Scio está pensada para los casos en los que te tienes que ausentar de tu horario de trabajo para resolver asuntos personales que no puedes atender fuera del horario de oficinas habitual en México, por ejemplo, hacer un trámite de gobierno o en algún banco, asistir a reuniones de padres de familia en escuelas, etc. Al no ser una prestación pensada o diseñada como un descanso extra, no pueden combinarse con otros permisos como vacaciones, día feriado, etc.. No hay excepciones.  
 
@@ -59,6 +59,13 @@ Las personas que asisten 3 días o más a la oficina y lo tienen definido así e
 Es una prestación en la que se otorgan 5 días al hombre colaborador para ausentarse del trabajo en virtud del nacimiento o adopción de su hijo o hija. Puedes solicitarlo a través de un correo electrónico a Capital Humano en el que avises del nacimiento o adopción de tu bebé indicando los días que estarás ausente.  
 
   `;
+
+const COLABORATORS = `
+Omar Joya Rodriguez es un desarrollador de scio consulting, le gusta ver series en Netflix, jugar Xbox e ir al cine, tiene 6 años en Scio Consulting, tiene una perrita llamada Neyla
+
+Victor Tellez Izquierdo tiene 5 años trabajando en Scio Consulting, tiene una hija y le gusta jugar futbol es fanatico del equipo Chivas de Guadalajara y le gusta jugar billar.
+
+`;
 
 const COMPANY_INFORMATION = `COMPANY INFORMATION:
   Scio Consulting is a nearshore software development company based in US with development center in Mexico. Here are some additional details about Scio:
@@ -80,6 +87,117 @@ const COMPANY_INFORMATION = `COMPANY INFORMATION:
   * Technology Stack: VueJs, Azure, AWS, .Net, Angular, React, Angular JS, iOS, Android, NodeJs and more.
   * Contact Information: Email:contact@sciodev.com. Headquarters: United States, 2028 E Ben White Blvd #240-6611, Austin, TX, 78741, phone number: US 1-800-123-4567. Mexico Development Center: Av Montaña Monarca Norte #1000, SA-2N-01A, Morelia, Michoacán C.P. 58350, phone number: MX +52 44 3334 5678`;
 
+const JOB_HRM = `
+Job Title: Human Resources Manager
+Department: Human Resources
+Reports To: Human Resources Director or COO/General Manager
+Minimum Required Education: Bachelor´s Degree in Psychology or Business management and/or Master´s Degree in Human Resources Management
+Minimum Required years of experience: 5-7 years as HR administrator
+This person will be responsible for:
+· Defining HR Strategies to be followed in recruitment and retention
+· Managing the recruiting and hiring processes
+· Managing the termination process
+· Defining and supervising monthly employee integration activities
+· Defining the use of annual department budget
+· Managing Performance review and career development process
+· Formalizing of job descriptions and individual performance plans
+· Company-wide compliance with HR policies, guidelines and laws
+· Organizing and managing the office wide and individual training programs
+· Organizing office town hall meetings and monthly newsletter to the staff
+· Managing the on-boarding and new hire orientation program
+· Managing benefits program
+· Managing employee relations, including conflict resolution and the social programs
+· Understanding of and managing towards utilization and other efficiency metrics
+
+QUALIFICATIONS
+Essential Job Requirements (skills)
+
+Technical Skills
+· Demonstrated experience with in-depth HR knowledge: recruitment and candidate selection, compensation and incentive
+programs, learning and development, change leadership and management, organizational development, as well as talent planning and management
+· Experience in a dynamic, growth-oriented business environment; experience as a member of a business management team is preferred
+• Exceptional verbal and written communication skills; excellent presentation and facilitation skills.
+• Strong leadership, management, and interpersonal skills.
+• Knowledge of IT industry
+Communication skills
+ü Fully bilingual English- Spanish
+Others
+ü Proactive
+ü Self-motivated
+ü Committed
+ü Team player
+Desirable:
+
+• Previous experience in a consulting organization
+`
+
+const JOB_DES_DEV_III = `
+JOB DESCRIPTION
+Job Title: Application Developer III 
+Department: Software Development		  
+Minimum Required Education: Associate’s Degree or Formal Accreditation in Computer Science or related field  
+Minimum Required years of experience: 5 years in application development  
+This person will be responsible for: 
+Reporting to the project leader in a timely manner 
+Ensring that all code meets quality standards  
+Making technical decisions along with the technical leader 
+Gathering, analyzing and proposing technical requirements 
+Helping other team members through the development process 
+Maintaining a constant, clear and direct communication with the client and other team members 
+Designing, developing and implementing complex web, desktop, mobile, API, etc., applications through the use of different technology that best suits the requirements 
+Querying database CRUD operations, Stored Procedures, Triggers, Views, Functions, Monitoring 
+Designing complex relational or noSQL databases 
+Performing code reviews for other team members 
+Mentoring less experienced developers 
+Meeting deadlines 
+Following agile methodologies 
+
+QUALIFICATIONS 
+Essential Job Requirements (skills)  
+
+Technical Skills 
+Advanced programming experience (5+ years) 
+Advanced Knowledge programming languages 
+Able to build software architecture and to follow design patterns 
+Advanced Experience in Databases 
+Able to configure and implement CI, CD, Versioning tools 
+Advanced Experience using IDEs and management tools 
+Implement and follow TDD pattern 
+Implement and follow DDD (Design Driven Development) pattern 
+Experience using cloud services (AWS, Azure, etc) 
+
+Communication skills 
+Fully bilingual English/Spanish 
+Ability to ask and clarify doubts to avoid misunderstandings with clients and team members  
+Ability to interact and coordinate work effectively with project leader and team members  
+
+Negotiation skills 
+Others 
+Proactive 
+Self-motivated  
+Committed 
+Technical insight  
+Ability finding creative ways to solve problems efficiently 
+Ability to learn new technologies quickly  
+Ability to work in a team environment 
+Detail oriented  
+Leadership 
+Good estimation skills 
+Self-Directed 
+Multitask 
+
+Results Oriented 
+Desirable: 
+Experience working with clients in the US or English speaking clients 
+
+Certifications 
+In order to be promoted to the next level (B or C) the employee must met, the following criteria accordingly: 
+
+Seniority Matrix  
+III A - All Mid and Senior skills 
+III B - All Senior skills and 30% of Lead Skills 
+III C - All Senior skills and 60% of Lead Skills 
+`
 /**
  * Creates a prompt for the OpenAI chat completion API.
  * @param question - The user's question.
@@ -91,7 +209,7 @@ export function createPrompt(
   return [
     {
       role: 'system',
-      content: SYSTEM_PROMPT + COMPANY_INFORMATION,
+      content: SYSTEM_PROMPT + COMPANY_INFORMATION + COLABORATORS + JOB_HRM + JOB_DES_DEV_III,
     },
     { role: 'user', content: question },
   ];
