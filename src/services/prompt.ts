@@ -208,6 +208,8 @@ III A - All Mid and Senior skills
 III B - All Senior skills and 30% of Lead Skills 
 III C - All Senior skills and 60% of Lead Skills 
 `
+
+const TODAY = `El dia de hoy ${new Date()}`
 /**
  * Creates a prompt for the OpenAI chat completion API.
  * @param question - The user's question.
@@ -219,7 +221,7 @@ export function createPrompt(
   return [
     {
       role: 'system',
-      content: SYSTEM_PROMPT + COMPANY_INFORMATION + COLABORATORS + JOB_HRM + JOB_DES_DEV_III
+      content: TODAY + SYSTEM_PROMPT + COMPANY_INFORMATION + COLABORATORS + JOB_HRM + JOB_DES_DEV_III
         + EXCEPTION_DOC,
     },
     { role: 'user', content: question },
