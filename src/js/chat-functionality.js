@@ -90,11 +90,11 @@ async function handleAnswer(answer) {
   const exception = "Procesando tu Solicitud de Excepción";
 
   if (answer.includes(exception)) {
-    processException(answer);
+    processExceptionRequest(answer);
   }
 }
 
-async function processException(inputString) {
+async function processExceptionRequest(inputString) {
   const nombreMatch = inputString.match(/Nombre:\s*([\w\s]+)/);
   const fechaMatch = inputString.match(/Fecha:\s*([\d\/-]+)/);
   const razonMatch = inputString.match(/Razón:\s*([\w\s]+)/);

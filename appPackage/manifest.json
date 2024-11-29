@@ -14,12 +14,12 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "scIonA${{APP_NAME_SUFFIX}}",
-        "full": "Full name for scIonA"
+        "short": "Sciona${{APP_NAME_SUFFIX}}",
+        "full": "Full name for Sciona"
     },
     "description": {
-        "short": "Short description of scIonA",
-        "full": "Full description of scIonA"
+        "short": "Short description of Sciona",
+        "full": "Full description of Sciona"
     },
     "accentColor": "#FFFFFF",
     "bots": [],
@@ -27,13 +27,11 @@
     "staticTabs": [
         {
             "entityId": "index0",
-            "name": "Home",
+            "name": "Sciona",
             "contentUrl": "${{TAB_ENDPOINT}}/tab",
             "websiteUrl": "${{TAB_ENDPOINT}}/tab",
             "scopes": [
-                "personal",
-                "groupChat",
-                "team"
+                "personal"
             ]
         }
     ],
