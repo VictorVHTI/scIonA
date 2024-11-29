@@ -37,13 +37,36 @@ body {
   border-radius: 10px;
   overflow: hidden;
 }
-.chat-header {
+/* .chat-header {
   background-color: #3e3e3e;
   padding: 15px;
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
   border-bottom: 1px solid #4e4e4e;
+} */
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #3e3e3e;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.chat-header small {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .chat-messages {
