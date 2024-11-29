@@ -10,11 +10,11 @@
         "termsOfUseUrl": "https://www.example.com/termsofuse"
     },
     "icons": {
-        "color": "color.png",
-        "outline": "outline.png"
+        "color": "icon.png",
+        "outline": "icon.png"
     },
     "name": {
-        "short": "Sciona${{APP_NAME_SUFFIX}}",
+        "short": "Sciona",
         "full": "Full name for Sciona"
     },
     "description": {
