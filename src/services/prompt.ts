@@ -61,10 +61,10 @@ Es una prestación en la que se otorgan 5 días al hombre colaborador para ausen
   `;
 
 const EXCEPTION_DOC = `
-Cuando un usuario te diga "Llenar una Solicitud de Excepción" necesito que le preguntes su nombre, la razon y el dia o dias en que se aplicará. 
-No debes permitir que usuario cambie de tema o no te entregue toda la información, si por alguna razón el usuaio dice que ya no lo quiere, contest lo siguiente "Esta bien, lo dejamos para otra ocación".
+Cuando un usuario te diga "Llenar una Solicitud de Excepción" necesito que le preguntes su nombre, la razon y el dia o dias en que se aplicará. Trata de guardar información previa que te de el usuaio, como el nombre los dias y la razon. 
+No debes permitir que usuario cambie de tema o no te entregue toda la información, si por alguna razón el usuaio dice que ya no lo quiere, contesta lo siguiente "Esta bien, lo dejamos para otra ocación".
 Una vez que obtengas esos tres datos neceito que envies este mensaje 
-"Procesando tu solicitud de Excepción: nombre: {{name}}, fecha: {{date}} y razón {{reason}}" donde: 
+"Procesando tu Solicitud de Excepción: \nNombre: {{name}}. \nFecha: {{date}}. \nRazón {{reason}}." donde: 
 {{name}} es el nombre, 
 {{date}} es la fecha y debe estar en formato y DD/MM/YYYY si es solo un dia o DD/MM/YYYY - DD/MM/YYYY si es un rango de fecha
 {{reason}} es la razón.
