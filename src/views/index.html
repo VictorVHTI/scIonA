@@ -15,15 +15,22 @@
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div>
-      <h1>Hello, World</h1>
-      <span>
-        <p>Your app is running</p>
-        <p id="hubState"></p>
-      </span>
+    
+    <div class="chat-container">
+      <div class="chat-header">scIonA el perrron</div>
+      <div id="messageArea" class="chat-messages">
+          <div class="chat-message received">Hello! I'm scIonA, How can I help you today?</div>
+      </div>
+      <div class="chat-input">
+          <input type="text" id="messageInput" placeholder="Type a message...">
+          <button id="sendButton">Send</button>
+      </div>
     </div>
+  
+
     <script type="text/javascript">
       microsoftTeams.appInitialization.notifySuccess();
     </script>
+    <script src="../js/chat-functionality.js"></script>
   </body>
 </html>

@@ -30,13 +30,18 @@ server.listen(process.env.port || process.env.PORT || 3333, function () {
 // Adding tabs to our app. This will setup routes to various views
 // Setup home page
 server.get("/", (req, res, next) => {
-  send(req, __dirname + "/views/hello.html").pipe(res);
+  send(req, __dirname + "/views/index.html").pipe(res);
+});
+
+server.get("/js/chat-functionality.js", (req, res, next) => {
+  send(req, __dirname + "/js/chat-functionality.js").pipe(res);
 });
 
 // Setup the static tab
 server.get("/tab", (req, res, next) => {
-  send(req, __dirname + "/views/hello.html").pipe(res);
+  send(req, __dirname + "/views/index.html").pipe(res);
 });
+
 
 const agent = new Agent({ apiKey: "" });
 
