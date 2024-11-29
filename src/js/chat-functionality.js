@@ -136,15 +136,16 @@ async function processExceptionRequest(inputString) {
       return response.text();
     })
     .then(html => {
-      // const name = 'Juan Pérez'; // Replace with your dynamic value
       const updatedHTML = html.replace('{{name}}', name);
 
-      // Open the updated HTML in a new window
       const newWindow = window.open('', '_blank');
       if (newWindow) {
-        newWindow.document.open();
-        newWindow.document.write(updatedHTML);
-        newWindow.document.close();
+          newWindow.document.write(updatedHTML);
+          newWindow.document.close(); 
+
+          setTimeout(() => {
+              newWindow.print();
+          }, 500); 
       } else {
         console.error('Failed to open a new window');
       }
