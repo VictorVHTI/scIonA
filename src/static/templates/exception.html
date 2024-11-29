@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Excepción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .button:hover {
+            background-color: #003d82;
+        }
+        .approval-section {
+            margin-top: 30px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solicitud de Excepción a Política de Trabajo Híbrido</h1>
+        <form>
+            <label>Nombre del Colaborador:  {{name}}</label>
+
+            <h2>Detalles de la Solicitud:</h2>
+            <label>Motivo:</label>
+            <input type="checkbox" name="motivo" value="salud-propia"> Salud propia (explica)
+            <textarea placeholder="Especifica..."></textarea>
+
+            <input type="checkbox" name="motivo" value="salud-familiar" checked> Salud de un Familiar (explica)
+            <textarea placeholder="Especifica..."></textarea>
+
+            <input type="checkbox" name="motivo" value="otro"> Otro (explica)
+            <textarea placeholder="Especifica..."></textarea>
+
+            <label>Tipo:</label>
+            <input type="checkbox" name="tipo" value="temporal" checked> Temporal 
+            <label>De:</label> <input type="date" name="fecha-inicio">
+            <label>A:</label> <input type="date" name="fecha-fin">
+
+            <input type="checkbox" name="tipo" value="permanente"> Permanente
+            <label>A partir de:</label> <input type="date" name="fecha-inicio-permanente">
+
+            <div class="approval-section">
+                <h2>Aprobación:</h2>
+                <p>(Por parte de Capital Humano)</p>
+                <label>La solicitud es:</label>
+                <input type="checkbox" name="aprobada"> Aprobada
+                <input type="checkbox" name="rechazada"> Rechazada
+
+                <label>Razón:</label>
+                <textarea placeholder="Especifica..."></textarea>
+
+                <label>Firma Gerente Capital Humano:</label>
+                <input type="text" name="firma-gerente">
+
+                <label>Enterado:</label>
+                <label>Firma Account Manager:</label>
+                <input type="text" name="firma-account-manager">
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="button">Enviar</button>
+                <button type="reset" class="button">Restablecer</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
