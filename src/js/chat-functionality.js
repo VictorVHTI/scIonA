@@ -1,5 +1,3 @@
-const Agent = require('../services/agent');
-
 function initializeChat() {
   const sendButton = document.getElementById('sendButton');
   const messageInput = document.getElementById('messageInput');
@@ -26,12 +24,20 @@ async function addMessage(inputElement, messageArea) {
       newMessage.textContent = messageText;
       messageArea.appendChild(newMessage);
 
-      const data = await Agent.ask(messageText);
+      const response = await fetch('/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: messageText }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
+      const data = await response.json();
       const botMessage = document.createElement('div');
       botMessage.classList.add('chat-message', 'received');
-      botMessage.textContent = data.response;
-      // botMessage.textContent = 'te estoy escuchando'
+      botMessage.textContent = data.answer;
       messageArea.appendChild(botMessage);
 
     } catch (error) {

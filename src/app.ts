@@ -42,12 +42,13 @@ server.get("/tab", (req, res, next) => {
   send(req, __dirname + "/views/index.html").pipe(res);
 });
 
+server.use(restify.plugins.bodyParser());
 
 const agent = new Agent({ apiKey: "" });
 
-server.get('/ask', async (req, res) => {
+server.post('/ask', async (req, res) => {
   try {
-    const { question } = req.query;
+    const { question } = req.body;
     const response = await agent.ask(question);
     res.send(200, { question: question, answer: response });
   } catch (error: any) {
