@@ -4,60 +4,33 @@ const SYSTEM_PROMPT = `REQUIRED GUIDELINES:
 Notas adicionales: Trabajas para la empresa de SCIO (https://sciodev.com/)
 
 ¿Cuál es el proceso que debo seguir para solicitar apoyo para una certificación? 
-
 Lo primero que debes de hacer es pedir la aprobación de tu líder. Luego de esto, llenarás el FORMATO DE GASTOS PARA CERTIFICACIÓN TÉCNICA y lo entregarás a Capital Humano con los gastos pronosticados. Una vez que logres tu certificación, llenarás la segunda parte del formato con los gastos realmente realizados y adjuntarás tus comprobantes, incluida la certificación, para entregarlo nuevamente a Capital Humano. Ten en cuenta que el apoyo que otorga Scio para una certificación es el 80% de los gastos totales realizados a través de un reembolso.  
 
 ¿Cuál es el proceso que debo seguir para solicitar apoyo para curso de inglés? 
-
 Solicita la aprobación de tu líder dándole toda la información del curso que tomarás adjuntando la SOLICITUD DE APROBACIÓN DE CAPACITACIÓN y copia a Capital Humano. Una vez que tu líder apruebe la solicitud y luego de cada pago que realices de tu curso podrás procesar el reembolso usando la forma REEMBOLSO POR CAPACITACIÓN, anexando tu calificación y la factura a nombre de Scio. Ten en cuenta que el mínimo de calificación aprobatoria para solicitar el apoyo es de 80 puntos y el presupuesto autorizado tope es de $1,800 pesos.  
 
 ¿Bajo qué escenarios puedo solicitar una excepción de asistencia a la oficina?
-
 Puedes solicitar una excepción de asistencia a la oficina cuando te encuentres enfermo o con necesidad de cuidar a un familiar enfermo. 
 
-¿Puedo cambiar los días de asistencia a la oficina en cualquier momento? 
-
-Sí, siempre y cuando: 
-
-Te asegures que tu equipo/líder están de acuerdo 
-
-Que el día por el que lo quieres cambiar asiste al menos otro miembro de tu equipo 
-
-Solicita a Capital Humano y llena nuevamente el FORMATO DE TRABAJO HÍBRIDO con tu nueva selección de días 
-
-
 ¿Cómo funciona la política de incapacidad por enfermedad?
-
 Scio tiene contemplado dos escenarios diferentes para considerar una incapacidad:  
-
 Incapacidad por enfermedad cuya evolución y tratamiento es corto (máximo 7 días hábiles). El pago de los 2 primeros días es al 100% y los siguientes 5 días es 100% sueldo IMSS y 70% del ingreso por anticipo de utilidades.  
-
 Incapacidad por enfermedad cuya evolución y tratamiento es considerado largo (más de 7 días hábiles y hasta un máximo de 90 días naturales). El pago de los 2 primeros días es al 100% y el resto de la incapacidad es solo con ingresos de anticipo de utilidades al 70% por parte de la empresa. Bajo este escenario es necesario tramitar el pago de incapacidad directamente en el IMSS, organismo que pagará el 60% del sueldo o más dependiendo del tipo de incapacidad. 
 
-Para mas infomacion sobre vacaciones consulta: https://www.gob.mx/profedet/es/articulos/la-ley-federal-del-trabajo-es-tu-aliada-en-tu-derecho-a-recibir-vacaciones y en base a eso responde
-
-Puedes consultar más infomación de SCIO en https://docs.google.com/document/d/1BPznTCNKb1CZ2c7aISLOT5V542Jw5TnmLYkn8bEdR_w/edit?usp=sharing
-
 ¿Puedo adelantar vacaciones? 
-
 Si, luego del primer año de antigüedad puedes adelantar días de vacaciones, siempre y cuando el número de días solicitados no supere los acumulados para el siguiente periodo.  
 
 ¿Puedo usar horas de tiempo personal y combinarla con otros permisos como vacaciones, permiso especial, día feriado?
-
 Esta prestación adicional en Scio está pensada para los casos en los que te tienes que ausentar de tu horario de trabajo para resolver asuntos personales que no puedes atender fuera del horario de oficinas habitual en México, por ejemplo, hacer un trámite de gobierno o en algún banco, asistir a reuniones de padres de familia en escuelas, etc. Al no ser una prestación pensada o diseñada como un descanso extra, no pueden combinarse con otros permisos como vacaciones, día feriado, etc.. No hay excepciones.  
 
 ¿En qué escenarios puedo hacer uso de la póliza de Seguro de Gastos Médicos Mayores? 
-
 Una vez que los gastos médicos realizados por algún padecimiento o enfermedad superen el deducible vigente de nuestra póliza esto es, $6,606 pesos, ese padecimiento se considera un gasto médico mayor y puedes atenderlo usando los beneficios de tu póliza; siempre y cuando el padecimiento esté contemplado dentro de los cubiertos. Puedes solicitar a Capital Humano orientación detallada con tu padecimiento en cualquier momento.   
 
 ¿Cuándo puedo solicitar una tarjeta de estacionamiento para asistir a la oficina? 
-
 Las personas que asisten 3 días o más a la oficina y lo tienen definido así en su PLAN DE TRABAJO HÍBRIDO, pueden pedir una tarjeta de estacionamiento. 
 
 ¿En qué consiste el permiso por paternidad y como puedo solicitarlo? 
-
 Es una prestación en la que se otorgan 5 días al hombre colaborador para ausentarse del trabajo en virtud del nacimiento o adopción de su hijo o hija. Puedes solicitarlo a través de un correo electrónico a Capital Humano en el que avises del nacimiento o adopción de tu bebé indicando los días que estarás ausente.  
-
   `;
 
 const EXCEPTION_DOC = `
@@ -69,33 +42,6 @@ Una vez que obtengas esos tres datos neceito que envies este mensaje
 {{date}} es la fecha y debe estar en formato y DD/MM/YYYY si es solo un dia o DD/MM/YYYY - DD/MM/YYYY si es un rango de fecha
 {{reason}} es la razón.
 `;
-
-const COLABORATORS = `
-Omar Joya Rodriguez es un desarrollador de scio consulting, le gusta ver series en Netflix, jugar Xbox e ir al cine, tiene 6 años en Scio Consulting, tiene una perrita llamada Neyla
-
-Victor Tellez Izquierdo tiene 5 años trabajando en Scio Consulting, tiene una hija y le gusta jugar futbol es fanatico del equipo Chivas de Guadalajara y le gusta jugar billar.
-
-`;
-
-const COMPANY_INFORMATION = `COMPANY INFORMATION:
-  Scio Consulting is a nearshore software development company based in US with development center in Mexico. Here are some additional details about Scio:
-  * Our purpose is to build carefully crafted, useful software solutions. Carefully crafted means that it has quality, beauty, good engineering, and is individually designed for each client, so that we can be proud of it. Useful means it simplifies life and helps our customers and their users to achieve their goals, thereby fostering prosperity, job creation, economic improvement, and a brighter global future.
-  * History and Experience: Scio has over 20 years of experience in the software development industry. They have successfully collaborated with a diverse range of clients, from startups to large enterprises.
-  * Services: Scio offers end-to-end software engineering services. This includes everything from initial development to ongoing support and enhancements. We specialize in industries like education / edtech, insurance / Insurtech, and healthcare.
-  * Team Composition: Scio's team consists of bilingual software engineers from Mexico and Latin America. Their engineers are skilled in various technologies and frameworks, ensuring high-quality deliverables.
-  * Engagement Models: Staff Augmentation: Scio provides additional software engineers to help achieve development goals without administrative overhead.
-  * Dedicated Teams: They offer fully dedicated teams for launching new projects.Dedicated Teams include all the necessary roles to meet your objectives, such as: Software Architects, Developers, QA Testers, BA/PO, UI/UX Designers, DevOps Engineers and Project Managers/ScrumMasters.
-  * Software Development Outsourcing: Scio handles the entire development lifecycle for custom business solutions.
-  * Advantages of Nearshore Development: Shared Time Zone: Real-time communication and collaboration.
-  * Cultural Alignment: Similar culture and work ethics.
-  * High Productivity: Efficient collaboration with low overhead.
-  * Tight Integration: Close collaboration with your existing team.
-  * Our approach: We believe in a collaborative approach, working closely with our clients to understand their unique challenges, goals, and vision, ensuring that every engagement is tailored to meet their specific needs. Our experienced software engineers combine deep technical expertise with industry best practices to deliver solutions that drive business success.
-  * Our culture: We foster a culture of collaboration, creativity, and continuous improvement. Our team members are encouraged to think outside the box, embrace new challenges, and strive for excellence in everything they do. We believe that a positive and inclusive work environment is key to driving innovation and delivering exceptional service to our clients.
-  * Our values: Integrity, respect, and customer satisfaction are at the heart of everything we do. We pride ourselves on building long-lasting relationships with our clients, based on trust, transparency, and mutual success. Our values guide us in every interaction and decision, ensuring that we always deliver the highest quality solutions.
-  * Technical toolkit: No stack limitations here! We are full-stack experts. We are full-stack developers, with ample experience building robust, scalable web, cloud and mobile apps and services.
-  * Technology Stack: VueJs, Azure, AWS, .Net, Angular, React, Angular JS, iOS, Android, NodeJs and more.
-  * Contact Information: Email:contact@sciodev.com. Headquarters: United States, 2028 E Ben White Blvd #240-6611, Austin, TX, 78741, phone number: US 1-800-123-4567. Mexico Development Center: Av Montaña Monarca Norte #1000, SA-2N-01A, Morelia, Michoacán C.P. 58350, phone number: MX +52 44 3334 5678`;
 
 const JOB_HRM = `
 Job Title: Human Resources Manager
@@ -221,8 +167,7 @@ export function createPrompt(
   return [
     {
       role: 'system',
-      content: TODAY + SYSTEM_PROMPT + COMPANY_INFORMATION + COLABORATORS + JOB_HRM + JOB_DES_DEV_III
-        + EXCEPTION_DOC,
+      content: SYSTEM_PROMPT + EXCEPTION_DOC + TODAY,
     },
     { role: 'user', content: question },
   ];
