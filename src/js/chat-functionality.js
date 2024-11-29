@@ -107,27 +107,6 @@ async function processExceptionRequest(inputString) {
   console.log("Fecha:", date);
   console.log("Razón:", reason);
 
-  // const response = await fetch('/generate-pdf', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ name, date, reason }),
-  // });
-
-  // fetch('static/templates/exception.html')
-  //   .then(response => response.text())
-  //   .then(html => {
-  //     debugger
-  //       // Replace {{name}} placeholder with a given name
-  //       // const name = 'Juan Pérez'; // Replace this with any dynamic name
-  //       const updatedHTML = html.replace('{{name}}', name);
-
-  //       // Call the function to download the updated HTML as a PDF
-  //       downloadPDF(updatedHTML, `solicitud-excepcion-${name}`);
-  //   })
-  //   .catch(error => {
-  //       console.error('Error loading HTML template:', error);
-  //   });
-
   fetch('static/templates/exception.html')
     .then(response => {
       if (!response.ok) {
@@ -137,6 +116,8 @@ async function processExceptionRequest(inputString) {
     })
     .then(html => {
       const updatedHTML = html.replace('{{name}}', name);
+      updatedHTML = updatedHTML.replace('{{date}}', date);
+      updatedHTML = updatedHTML.replace('{{reason}}', reason);
 
       const newWindow = window.open('', '_blank');
       if (newWindow) {
@@ -153,22 +134,6 @@ async function processExceptionRequest(inputString) {
     .catch(error => {
       console.error('Error loading HTML template:', error);
     });
-}
-
-function downloadPDF(htmlContent, fileName) {
-  // const doc = new jsPDF();
-  const doc = new window.jspdf.jsPDF();
-
-  // Generate PDF from provided HTML content
-  doc.html(htmlContent, {
-    callback: function (doc) {
-      doc.save(`${fileName}.pdf`);
-    },
-    x: 10,
-    y: 10,
-    width: 180,  // Adjust the width to fit content
-    windowWidth: 800  // The width of the page in the browser
-  });
 }
 
 initializeChat();

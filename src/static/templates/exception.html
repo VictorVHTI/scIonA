@@ -20,7 +20,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-        h1, h2 {
+        h1, h2, h3 {
             color: #0056b3;
         }
         h1 {
@@ -70,32 +70,108 @@
             border-radius: 8px;
             background-color: #f9f9f9;
         }
+        .signature-div {
+          display: flex;
+          /* align-items: center; */
+          padding-top: 12px;
+        }
+
+        .signature {
+          border-bottom: 1px solid;
+          flex: 1;
+          margin-left: 15px;
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .styled-table td {
+            border: 1px solid #dcdcdc;
+            padding: 8px 10px;
+            vertical-align: top;
+            background: #ffffff;
+        }
+
+        .styled-table .section-header {
+            font-weight: bold;
+            /* color: #b51f1f; */
+            background: #f5f5f5;
+            vertical-align: middle;
+        }
+
+        .dynamic-field {
+            /* color: #b51f1f; */
+            font-style: italic;
+        }
+
+        .date-field {
+            margin-left: 10px;
+            font-style: italic;
+        }
+
+        .small-text {
+            font-size: 10px;
+            color: #555555;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .date-content {
+          display: flex;
+          align-items: center;
+        }
+
+        .date-info {
+          flex: 1;
+          text-align: center;
+          padding: 12px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Solicitud de Excepción a Política de Trabajo Híbrido</h1>
+        <h2 style="text-align: center;">SOLICITUD DE EXCEPCIÓN A POLÍTICA DE TRABAJO HÍBRIDO</h2>
         <form>
             <label>Nombre del Colaborador:  {{name}}</label>
 
-            <h2>Detalles de la Solicitud:</h2>
-            <label>Motivo:</label>
-            <input type="checkbox" name="motivo" value="salud-propia"> Salud propia (explica)
-            <textarea placeholder="Especifica..."></textarea>
-
-            <input type="checkbox" name="motivo" value="salud-familiar" checked> Salud de un Familiar (explica)
-            <textarea placeholder="Especifica..."></textarea>
-
-            <input type="checkbox" name="motivo" value="otro"> Otro (explica)
-            <textarea placeholder="Especifica..."></textarea>
-
-            <label>Tipo:</label>
-            <input type="checkbox" name="tipo" value="temporal" checked> Temporal 
-            <label>De:</label> <input type="date" name="fecha-inicio">
-            <label>A:</label> <input type="date" name="fecha-fin">
-
-            <input type="checkbox" name="tipo" value="permanente"> Permanente
-            <label>A partir de:</label> <input type="date" name="fecha-inicio-permanente">
+            <h3>Detalles de la Solicitud:</h3>
+            
+            <table class="styled-table">
+              <tr>
+                  <td class="section-header">Motivo:</td>
+                  <td>
+                    <div>
+                      <section class="signature-div"><input type="checkbox"> <span>Salud propia (explica):</span><div class="signature"></div></section>
+                      <section class="signature-div"><input type="checkbox" checked> <span>Salud de un Familiar (explica):</span><div class="signature">{{reason}}</div></section>
+                      <section class="signature-div"><input type="checkbox"> <span> Otro (explica)::</span><div class="signature"></div></section>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="section-header">Tipo:</td>
+                  <td>
+                    <div class="date-content">
+                      <input type="checkbox" checked> Temporal
+                      <div class="date-info">
+                        <span class="date-field">De _____ {{date}} _____ a _____ {{date}} _____</span>
+                        <span class="small-text">(DD-MM-AAAA)</span>
+                      </div>
+                    </div>
+                    <div class="date-content">
+                      <input type="checkbox"> Permanente
+                      <div class="date-info">
+                        <span class="date-field">A partir de: _________________</span>
+                        <span class="small-text">(DD-MM-AAAA)</span>
+                      </div> 
+                    </div>
+                  </td>
+              </tr>
+          </table>
 
             <div class="approval-section">
                 <h2>Aprobación:</h2>
@@ -105,20 +181,26 @@
                 <input type="checkbox" name="rechazada"> Rechazada
 
                 <label>Razón:</label>
-                <textarea placeholder="Especifica..."></textarea>
+                <br/>
+                <hr></hr>
 
-                <label>Firma Gerente Capital Humano:</label>
-                <input type="text" name="firma-gerente">
-
+                <div class="signature-div">
+                  <label>Firma Gerente Capital Humano:</label>
+                  <div class="signature"></div>
+                </div>
+                
                 <label>Enterado:</label>
-                <label>Firma Account Manager:</label>
-                <input type="text" name="firma-account-manager">
+                <div class="signature-div">
+                  <label>Firma Account Manager:</label>
+                  <div class="signature"></div>
+                </div>
+                <br/>
             </div>
 
-            <div class="buttons">
+            <!-- <div class="buttons">
                 <button type="submit" class="button">Enviar</button>
                 <button type="reset" class="button">Restablecer</button>
-            </div>
+            </div> -->
         </form>
     </div>
 </body>
