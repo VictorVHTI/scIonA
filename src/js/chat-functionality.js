@@ -3,6 +3,14 @@ function initializeChat() {
   const messageInput = document.getElementById('messageInput');
   const messageArea = document.getElementById('messageArea');
 
+  const filesContainer = document.querySelector(".files");
+  const initRequestContainer = document.querySelector(".initRequestContainer");
+  const downloadButton = document.getElementById("downloadButton");
+  const chatButton = document.getElementById("chatButton");
+
+  const exceptionButton = document.getElementById("exception");
+
+
   sendButton.addEventListener('click', () => {
     addMessage(messageInput, messageArea);
   });
@@ -13,10 +21,33 @@ function initializeChat() {
       addMessage(messageInput, messageArea);
     }
   });
+
+  downloadButton.addEventListener("click", () => {
+    if (filesContainer.style.display === "none") {
+      filesContainer.style.display = "flex";
+    } else {
+      filesContainer.style.display = "none";
+    }
+    hideInitrequest();
+  });
+
+  chatButton.addEventListener("click", () => {
+    hideInitrequest();
+    addMessage(messageInput, messageArea, 'Quiero preguntarte algo');
+  });
+
+  exceptionButton.addEventListener("click", () => {
+    filesContainer.style.display = "none";
+    addMessage(messageInput, messageArea, 'Llenar una Solicitud de Excepción');
+  });
+
+  function hideInitrequest() {
+    initRequestContainer.style.display = "none"
+  }
 }
 
-async function addMessage(inputElement, messageArea) {
-  const messageText = inputElement.value.trim();
+async function addMessage(inputElement, messageArea, message = null) {
+  const messageText = message ?? inputElement.value.trim();
   if (messageText) {
     try {
       const newMessage = document.createElement('div');

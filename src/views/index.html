@@ -22,8 +22,20 @@
         <img src="/static/images/sciona-icon.png" alt="Scion Icon" class="header-icon">
       </div>
       <div id="messageArea" class="chat-messages">
-          <div class="chat-message received">Hello! I'm Sciona, How can I help you today?</div>
+          <div class="chat-message received">¡Hola! Soy Sciona, ¿En qué te puedo ayudar?</div>
+
+          <div id="controls" class="initRequestContainer">
+            <button id="chatButton">Quiero Chatear</button>
+            <button id="downloadButton">Llenar un documento</button>
+          </div>
+
+          <div id="controls" class="files" style="display: none;">
+            <button id="exception">Solicitud de Excepción</button>
+            <button id="refund" disabled>Reembolso</button>
+            <button id="certification" disabled>Cerfificación</button>
+          </div>
       </div>
+
       <!-- <div id="messageArea" class="chat-messages">
         <div class="chat-message received">
             <img src="path/to/received-avatar.png" alt="User Avatar">
