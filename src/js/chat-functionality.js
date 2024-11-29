@@ -115,7 +115,7 @@ async function processExceptionRequest(inputString) {
       return response.text();
     })
     .then(html => {
-      const updatedHTML = html.replace('{{name}}', name);
+      let updatedHTML = html.replace('{{name}}', name);
       updatedHTML = updatedHTML.replace('{{date}}', date);
       updatedHTML = updatedHTML.replace('{{reason}}', reason);
 
