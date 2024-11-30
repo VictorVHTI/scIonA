@@ -116,7 +116,7 @@ async function processExceptionRequest(inputString) {
     })
     .then(html => {
       let updatedHTML = html.replace('{{name}}', name);
-      updatedHTML = updatedHTML.replace('{{date}}', date);
+      updatedHTML = updatedHTML.replaceAll('{{date}}', date);
       updatedHTML = updatedHTML.replace('{{reason}}', reason);
 
       const newWindow = window.open('', '_blank');

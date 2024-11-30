@@ -131,6 +131,13 @@
           text-align: center;
           padding: 12px;
         }
+
+        .powered-by {
+          text-align: end;
+          padding-top: 15px;
+          font-style: italic;
+          font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -146,8 +153,8 @@
                   <td class="section-header">Motivo:</td>
                   <td>
                     <div>
-                      <section class="signature-div"><input type="checkbox"> <span>Salud propia (explica):</span><div class="signature"></div></section>
-                      <section class="signature-div"><input type="checkbox" checked> <span>Salud de un Familiar (explica):</span><div class="signature">{{reason}}</div></section>
+                      <section class="signature-div"><input type="checkbox" checked> <span>Salud propia (explica):</span><div class="signature">{{reason}}</div></section>
+                      <section class="signature-div"><input type="checkbox"> <span>Salud de un Familiar (explica):</span><div class="signature"></div></section>
                       <section class="signature-div"><input type="checkbox"> <span> Otro (explica)::</span><div class="signature"></div></section>
                     </div>
                   </td>
@@ -201,6 +208,9 @@
                 <button type="submit" class="button">Enviar</button>
                 <button type="reset" class="button">Restablecer</button>
             </div> -->
+            <div class="powered-by">
+              Powered by Sciona
+            </div>
         </form>
     </div>
 </body>

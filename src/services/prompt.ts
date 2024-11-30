@@ -162,13 +162,13 @@ const TODAY = `El dia de hoy ${new Date()}`
  * @returns An array of chat completion message parameters.
  */
 export function createPrompt(
-  question: string
+  history: any
 ): Array<OpenAI.ChatCompletionMessageParam> {
   return [
     {
       role: 'system',
       content: SYSTEM_PROMPT + EXCEPTION_DOC + TODAY,
     },
-    { role: 'user', content: question },
+    ...history
   ];
 }

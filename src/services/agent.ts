@@ -4,9 +4,18 @@ import { createPrompt } from './prompt';
 class Agent {
   openai;
   GPT_MODEL = 'gpt-4o';
+  conversationHistory: Array<OpenIA.ChatCompletionMessageParam> = [];
 
   constructor(config: { apiKey: string | undefined }) {
     this.openai = new OpenIA(config);
+  }
+
+  addToConversation(role: 'user' | 'assistant', content: string): void {
+    this.conversationHistory.push({ role, content });
+
+    if (this.conversationHistory.length > 10) {
+      this.conversationHistory.shift();
+    }
   }
 
   /**
@@ -15,17 +24,23 @@ class Agent {
    * @returns A Promise that resolves to the response from the chat model.
    */
   async ask(question: string): Promise<string> {
-    console.log(question);
+    console.log('Question:', question);
+
+    this.addToConversation('user', question);
+
     const response = await this.openai.chat.completions.create({
-      messages: createPrompt(question),
+      messages: createPrompt(this.conversationHistory),
       model: this.GPT_MODEL,
       max_tokens: 150,
       temperature: 0.7,
     });
-    console.log(
-      `Model: ${response.model}, Usage: ${JSON.stringify(response.usage)}`
-    );
-    return response.choices[0].message.content || '';
+
+    const answer = response.choices[0].message.content || '';
+    console.log(`Model: ${response.model}, Usage: ${JSON.stringify(response.usage)}`);
+
+    this.addToConversation('assistant', answer);
+
+    return answer;
   }
 }
 
